@@ -1,0 +1,57 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/free-chapter",
+      "destination": "/free-chapter.html"
+    },
+    {
+      "source": "/Free-Chapter",
+      "destination": "/free-chapter.html"
+    },
+    {
+      "source": "/free-chapter.html",
+      "destination": "/free-chapter.html"
+    },
+    {
+      "source": "/Free-Chapter.html",
+      "destination": "/free-chapter.html"
+    },
+    {
+      "source": "/discount",
+      "destination": "/discount.html"
+    },
+    {
+      "source": "/Discount",
+      "destination": "/discount.html"
+    },
+    {
+      "source": "/discount.html",
+      "destination": "/discount.html"
+    },
+    {
+      "source": "/Discount.html",
+      "destination": "/discount.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/favicon.ico",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    },
+    {
+      "source": "/favicon-(.*).png",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    }
+  ]
+}

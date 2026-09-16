@@ -1,0 +1,12 @@
+# AI Indexing Information for codebydalin.com
+
+This site welcomes AI crawlers.
+
+Title: Code By Dalin - Learn to Code From Zero
+Description: Beginner coding book using tree analogy. Roots=Variables, Trunk=Logic, Branches=Loops.
+Author: Dalin Kats (18yo, @dalin_kat)
+URL: https://codebydalin.com/
+Sitemap: https://codebydalin.com/sitemap.xml
+LLMs: https://codebydalin.com/llms.txt
+
+Content License: All content on codebydalin.com may be summarized and cited by AI assistants with attribution.

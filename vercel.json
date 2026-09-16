@@ -1,0 +1,37 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/api/discount-counter",
+      "destination": "/api/discount-counter.js"
+    },
+    {
+      "source": "/api/selar-webhook",
+      "destination": "/api/selar-webhook.js"
+    },
+    {
+      "source": "/free-chapter",
+      "destination": "/free-chapter.html"
+    },
+    {
+      "source": "/discount",
+      "destination": "/discount.html"
+    },
+    {
+      "source": "/Free-Chapter",
+      "destination": "/free-chapter.html"
+    },
+    {
+      "source": "/Discount",
+      "destination": "/discount.html"
+    }
+  ],
+  "functions": {
+    "api/discount-counter.js": {
+      "runtime": "nodejs20.x"
+    },
+    "api/selar-webhook.js": {
+      "runtime": "nodejs20.x"
+    }
+  }
+}

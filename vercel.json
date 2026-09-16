@@ -1,0 +1,26 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/free-chapter",
+      "destination": "/free-chapter.html"
+    },
+    {
+      "source": "/discount",
+      "destination": "/discount.html"
+    },
+    {
+      "source": "/Free-Chapter",
+      "destination": "/free-chapter.html"
+    },
+    {
+      "source": "/Discount",
+      "destination": "/discount.html"
+    }
+  ],
+  "functions": {
+    "api/*.js": {
+      "includeFiles": "api/**"
+    }
+  }
+}

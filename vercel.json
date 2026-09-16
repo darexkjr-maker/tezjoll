@@ -1,0 +1,29 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/free-chapter",
+      "destination": "/free-chapter.html"
+    },
+    {
+      "source": "/discount",
+      "destination": "/discount.html"
+    },
+    {
+      "source": "/Free-Chapter",
+      "destination": "/free-chapter.html"
+    },
+    {
+      "source": "/Discount",
+      "destination": "/discount.html"
+    },
+    {
+      "source": "/chapter-full",
+      "destination": "/chapter-full.html"
+    },
+    {
+      "source": "/chapter-full.html",
+      "destination": "/chapter-full.html"
+    }
+  ]
+}

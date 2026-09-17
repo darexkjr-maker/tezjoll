@@ -5,19 +5,22 @@ module.exports = async function handler(req, res) {
   if (req.method === 'OPTIONS') return res.status(200).end();
   const TOTAL = 30, PRICE_DISC = 12, PRICE_REG = 19, COUPON = 'DALIN30';
   let claimed = 0;
+  let hasKV = false;
   try {
     const { kv } = await import('@vercel/kv');
     claimed = await kv.get('dalin_discount_claimed') || 0;
+    hasKV = true;
     if (req.method === 'POST' && claimed < TOTAL) {
       claimed += 1;
       await kv.set('dalin_discount_claimed', claimed);
     }
-  } catch (e) {
-    // KV not configured = always show discount, never end
+  } catch {
+    // No KV = show discount as active forever (fix for your bug)
     claimed = 0;
+    hasKV = false;
   }
   const remaining = Math.max(0, TOTAL - claimed);
-  const active = remaining > 0;
+  const active = hasKV ? remaining > 0 : true; // If no KV, always active
   return res.status(200).json({
     total: TOTAL, claimed, remaining, active,
     currentPrice: active ? PRICE_DISC : PRICE_REG,

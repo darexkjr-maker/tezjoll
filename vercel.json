@@ -10,13 +10,27 @@
     {"source": "/bingsiteauth.xml", "destination": "/BingSiteAuth.xml"},
     {"source": "/sitemap.xml", "destination": "/sitemap.xml"},
     {"source": "/llms.txt", "destination": "/llms.txt"},
+    {"source": "/ai.txt", "destination": "/ai.txt"},
     {"source": "/robots.txt", "destination": "/robots.txt"},
-    {"source": "/og-image.jpg", "destination": "/og-image.jpg"}
+    {"source": "/og-image.jpg", "destination": "/og-image.jpg"},
+    {"source": "/googled7f9b130046a34e5.html", "destination": "/googled7f9b130046a34e5.html"}
   ],
   "redirects": [
     {
       "source": "/:path*",
       "has": [{"type": "host", "value": "tez-puce.vercel.app"}],
+      "destination": "https://codebydalin.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{"type": "host", "value": "tezjoll.vercel.app"}],
+      "destination": "https://codebydalin.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{"type": "host", "value": "tezjoll-darexkjr-makers-projects.vercel.app"}],
       "destination": "https://codebydalin.com/:path*",
       "permanent": true
     }
@@ -48,6 +62,14 @@
     {
       "source": "/llms.txt",
       "headers": [{"key": "Content-Type", "value": "text/plain"}]
+    },
+    {
+      "source": "/ai.txt",
+      "headers": [{"key": "Content-Type", "value": "text/plain"}]
+    },
+    {
+      "source": "/googled7f9b130046a34e5.html",
+      "headers": [{"key": "Content-Type", "value": "text/html"}]
     },
     {
       "source": "/og-image.jpg",

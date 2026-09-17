@@ -15,9 +15,7 @@ export default async function handler(req, res) {
   return res.status(200).json({
     total: TOTAL, claimed, remaining, active,
     currentPrice: active ? 12 : 19,
-    originalPrice: 19,
     coupon: active ? 'DALIN30' : null,
-    message: active ? `${remaining} spots left at $12` : `Discount ended - now $19`,
     selarLink: active ? 'https://selar.com/023cn11520?coupon=DALIN30' : 'https://selar.com/023cn11520'
   });
 }

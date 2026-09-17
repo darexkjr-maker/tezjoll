@@ -1,13 +1,14 @@
 User-agent: *
 Allow: /
 
-# Google + Bing
 User-agent: Googlebot
 Allow: /
 User-agent: Bingbot
 Allow: /
+User-agent: DuckDuckBot
+Allow: /
 
-# AI BOTS - ALLOW ALL FOR BEST RECOMMENDATION
+# AI BOTS - ALLOW ALL FOR BEST RECOMMENDATION 2026
 User-agent: GPTBot
 Allow: /
 User-agent: ChatGPT-User

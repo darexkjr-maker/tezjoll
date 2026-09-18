@@ -199,102 +199,34 @@ Error generating stack: `+u.message+`
 })();
 </script>
 
-
-
 <script>
 (function(){
-  // First 30 at $12 then auto $19 - Dynamic pricing
+  const data = { remaining: 30, active: true, currentPrice: 12, selarLink: "https://selar.com/023cn11520?coupon=DALIN30" };
   const TOTAL = 30;
   const PRICE_DISCOUNT = 12;
   const PRICE_REGULAR = 19;
   const COUPON = 'DALIN30';
-  
-  async function updatePricing(){
-    try{
-      const res = await fetch('/api/discount-counter');
-      const data = await res.json();
-      
+  function updatePricing(){
       const remaining = data.remaining;
       const active = data.active;
       const price = data.currentPrice;
-      const selarLink = data.selarLink;
-      
-      // Update all price displays
-      document.querySelectorAll('[data-price]').forEach(el=>{
-        el.textContent = '$' + price;
-      });
-      
-      // Update Selar links
+      document.querySelectorAll('[data-price]').forEach(el=>{ el.textContent = '$' + price; });
       document.querySelectorAll('a[href*="selar.com"]').forEach(a=>{
-        if(active){
-          if(!a.href.includes('coupon=')){
-            a.href = a.href.includes('?') ? a.href + '&coupon=' + COUPON : a.href.split('?')[0] + '?coupon=' + COUPON;
-            if(a.href.includes('023cn11520') && !a.href.includes('?')) a.href += '?coupon=' + COUPON;
-          }
-        } else {
-          a.href = a.href.replace(/\?coupon=[^&]*/, '').replace(/&coupon=[^&]*/, '');
+        if(active && !a.href.includes('coupon=')){
+          a.href = a.href.includes('?') ? a.href + '&coupon=' + COUPON : a.href.split('?')[0] + '?coupon=' + COUPON;
         }
       });
-      
-      // Update banners
-      const banners = document.querySelectorAll('#dalin-discount-banner, #dalin-discount-top');
-      banners.forEach(banner=>{
-        if(active){
-          // Show remaining
-          const existingCounter = banner.querySelector('.discount-counter');
-          if(!existingCounter){
-            const counter = document.createElement('span');
-            counter.className = 'discount-counter';
-            counter.style = 'background:#0a0a0a;color:#fff;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:700;margin-left:8px;';
-            counter.textContent = remaining + ' left at $12';
-            // Find DALIN30 code span and insert after
-            const codeSpans = banner.querySelectorAll('span');
-            if(codeSpans.length) codeSpans[0].parentNode.insertBefore(counter, codeSpans[0].nextSibling);
-            else banner.appendChild(counter);
-          } else {
-            existingCounter.textContent = remaining + ' left at $12';
-          }
-          // Update price text in banner
-          banner.innerHTML = banner.innerHTML.replace(/\$19/g, '$' + price).replace(/now \$19/gi, 'now $' + price);
-        } else {
-          // Discount ended - switch to $19
-          banner.innerHTML = '<span style="font-weight:700;">Discount ended - First 30 claimed!</span><span>Now $19</span><a href="https://selar.com/023cn11520" style="background:#0a0a0a;color:#fff;padding:4px 12px;border-radius:999px;text-decoration:none;font-weight:700;font-size:12px;">Buy $19 →</a>';
-          banner.style.background = '#fee2e2';
-          banner.style.color = '#991b1b';
-        }
+      document.querySelectorAll('#dalin-discount-banner, #dalin-discount-top').forEach(banner=>{
+        let c = banner.querySelector('.discount-counter');
+        if(!c){ c = document.createElement('span'); c.className='discount-counter'; c.style='background:#0a0a0a;color:#fff;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:700;margin-left:8px;'; banner.appendChild(c); }
+        c.textContent = remaining + ' left at $12';
       });
-      
-      // Update any DALIN30 display when ended
-      if(!active){
-        document.querySelectorAll('*').forEach(el=>{
-          if(el.childNodes.length === 1 && el.textContent.includes('DALIN30')){
-            if(el.textContent.trim() === 'DALIN30' || el.textContent.includes('Code')){
-              el.style.display = 'none';
-            }
-          }
-        });
-      }
-      
-      // Store for checkout click tracking
       window.__discountActive = active;
       window.__remainingSpots = remaining;
-      
-      console.log('Discount status:', data);
-      
-    } catch(e){
-      console.log('Discount counter not available, showing $12 default', e);
-    }
   }
-  
-  // Run on load
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', updatePricing);
   else updatePricing();
-  
-  // Click counting DISABLED - now using real Selar webhook only (100% automatic)
-  // document.addEventListener('click', function(e){...}) removed
-  
 })();
 </script>
-
 </body>
 </html>

@@ -80,8 +80,6 @@ Allow: /
 
 # === SITEMAPS FOR ALL BOTS ===
 Sitemap: https://codebydalin.com/sitemap.xml
-Sitemap: https://codebydalin.com/llms.txt
-Sitemap: https://codebydalin.com/BingSiteAuth.xml
 
 # === HOST ===
 Host: https://codebydalin.com/

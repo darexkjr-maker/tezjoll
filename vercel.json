@@ -1,0 +1,151 @@
+{
+  "cleanUrls": false,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/books",
+      "destination": "/books.html"
+    },
+    {
+      "source": "/free-chapter",
+      "destination": "/free-chapter.html"
+    },
+    {
+      "source": "/discount",
+      "destination": "/discount.html"
+    },
+    {
+      "source": "/Free-Chapter",
+      "destination": "/free-chapter.html"
+    },
+    {
+      "source": "/Discount",
+      "destination": "/discount.html"
+    },
+    {
+      "source": "/BOOKS",
+      "destination": "/books.html"
+    },
+    {
+      "source": "/chapter-full",
+      "destination": "/chapter-full.html"
+    },
+    {
+      "source": "/code",
+      "destination": "/code_secrets_to_becoming_a_full_stack.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "tez-puce.vercel.app"
+        }
+      ],
+      "destination": "https://codebydalin.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "tezjoll.vercel.app"
+        }
+      ],
+      "destination": "https://codebydalin.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "tezjoll-darexkjr-makers-projects.vercel.app"
+        }
+      ],
+      "destination": "https://codebydalin.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/free-chapter.html",
+      "destination": "/free-chapter",
+      "permanent": true
+    },
+    {
+      "source": "/books.html",
+      "destination": "/books",
+      "permanent": true
+    },
+    {
+      "source": "/discount.html",
+      "destination": "/discount",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    },
+    {
+      "source": "/BingSiteAuth.xml",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/xml"
+        }
+      ]
+    },
+    {
+      "source": "/sitemap.xml",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/xml"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/robots.txt",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/plain"
+        }
+      ]
+    },
+    {
+      "source": "/og-image.jpg",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "image/jpeg"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
+}
